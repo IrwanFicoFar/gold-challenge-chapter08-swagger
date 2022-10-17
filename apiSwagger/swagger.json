@@ -1,0 +1,439 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Challenge Swagger OpenAPI",
+      "version": "1.1"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:5000/api"
+      }
+    ],
+    "paths": {
+      "/players": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "SUCCESS",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "irwan"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "irwan@gmail.com"
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": "irwan123"
+                        },
+                        "experience": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "lvl": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "FAILED",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Some error occurred while retrieving players."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string",
+                      "example": "hadi"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "hadi@gmail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "hadi123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "SUCCESS",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "hadi"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "hadi@gmail.com"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "hadi123"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "422": {
+              "description": "Invalid Request Body",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Invalid Request Body"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/players/{id}": {
+        "get": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "id of menu",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "username": {
+                          "type": "string",
+                          "example": "irwan"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "irwan@gmail.com"
+                        },
+                        "password": {
+                          "type": "string",
+                          "example": "irwan123"
+                        },
+                        "experience": {
+                          "type": "integer",
+                          "example": 1
+                        },
+                        "lvl": {
+                          "type": "integer",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "FAILED",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Error retrieving Player with id"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "id of menu",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "username": {
+                      "type": "string",
+                      "example": "hadi"
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "hadi@gmail.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "hadi123"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "SUCCESS",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "hadi"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "hadi@gmail.com"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "hadi123"
+                      },
+                      "experience": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "lvl": {
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "FAILED",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Cannot update Player with id. Maybe Player was not found or req.body is empty!"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "id of menu",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "202": {
+              "description": "SUCCESS",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "hadi"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "hadi@gmail.com"
+                      },
+                      "password": {
+                        "type": "string",
+                        "example": "hadi123"
+                      },
+                      "experience": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "lvl": {
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "FAILED",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Cannot delete Player with id. Maybe Player was not found!"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/players/exp/{id}": {
+        "post": {
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "description": "id of menu",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "exp": {
+                      "type": "integer",
+                      "example": 1000
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "SUCCESS",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "exp": {
+                        "type": "integer",
+                        "example": 1000
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "FAILED",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string",
+                        "example": "Cannot update Player with id"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
